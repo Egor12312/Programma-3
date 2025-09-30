@@ -11,8 +11,8 @@ using namespace std;
 int main() {
   double t1, t2, l1, l2, s1, s2;
   double tc, x;
-  const int n = 4;
-  int t, i;
+  double n = 4;
+  double t, index;
  
   cout << "t1 = ";
   cin  >> t1;
@@ -28,24 +28,28 @@ int main() {
  
   cout << "s1 = ";
   cin  >> s1;
-  s1 = s1 / 100;
+  s1 = s1 / 100.0;
  
   cout << "s2 = ";
   cin  >> s2;
-  s2 = s2 / 100;
- 
+  s2 = s2 / 100.0;
+
   cout << fixed << setprecision(3);
  
-  for (i = 0; i < n; ++i) {
-    cout << "t = " ;
+  for (index = 0; index < n; ++index) {
+    cout << "t = ";
     cin  >> t;
+    
     tc = (l1 / s1 * t1 + l2 / s2 * t2) / (l1 / s1 + l2 / s2);
-    if (t > tc)
+    
+    if (t > tc) {
       x = (t - t1) / (tc - t1) * s1;
-    else 
+    }
+    else {
       x = (t - tc) / (t2 - tc) * s2 + s1;
-   
+    }
+    
     cout << x << endl;
-}
+  }
   return 0;
 }
